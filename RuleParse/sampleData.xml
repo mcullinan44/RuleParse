@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<codeeffects xmlns="https://codeeffects.com/schemas/rule/41" xmlns:ui="https://codeeffects.com/schemas/ui/4">
+	<rule id="483ff5db-4e87-4ae4-8b9d-b8a10b968bbf" 
+        webrule="5.0.21.2" utc="2021-02-26T05:00:16.7978" 
+        type="CodeEffects.Rule.Angular.Demo.Entities.SampleModel, CodeEffects.Rule.Angular.Demo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" 
+        eval="false">
+		<name>Sample Rule</name>
+		<definition>
+			<if>
+				<clause>
+					<and>
+            <condition type="doesNotContain" stringComparison="OrdinalIgnoreCase">
+							<property name="Address"/>
+							<value>zzzzzzz</value>
+						</condition>
+            <condition type="doesNotStartWith" stringComparison="OrdinalIgnoreCase">
+							<property name="LastName"/>
+							<value>1</value>
+						</condition>
+						<condition type="endsWith" stringComparison="OrdinalIgnoreCase">
+							<property name="CountyName"/>
+							<value>tertr</value>
+						</condition>
+						<condition type="isNotNull">
+							<property name="PersonName"/>
+						</condition>
+						<condition type="equal" stringComparison="OrdinalIgnoreCase">
+							<property name="StateName"/>
+							<value>MD</value>
+						</condition>
+						<condition type="isNotNull">
+							<property name="StateName"/>
+						</condition>
+						<or ui:block="true">
+							<and ui:block="true">
+								<condition type="equal">
+									<property name="FavoriteColor"/>
+									<value>Blue</value>
+								</condition>
+								<condition type="equal">
+									<property name="FavoriteFood"/>
+									<value>Tacos</value>
+								</condition>
+								<condition type="greaterOrEqual">
+									<property name="Score"/>
+									<value type="numeric">8</value>
+								</condition>
+							</and>
+              <and ui:block="true">
+                <condition type="equal">
+                  <property name="FavoriteColor"/>
+                  <value>Blue</value>
+                </condition>
+                <condition type="notEqual">
+                  <property name="FavoriteFood"/>
+                  <value>Tacos</value>
+                </condition>
+                <condition type="less">
+                  <property name="Score"/>
+                  <value type="numeric">16</value>
+                </condition>
+              </and>
+              <and ui:block="true">
+                <condition type="equal">
+                  <property name="FavoriteColor"/>
+                  <value>Green</value>
+                </condition>
+                <condition type="equal">
+                  <property name="FavoriteFood"/>
+                  <value>Fish</value>
+                </condition>
+                <condition type="greaterOrEqual">
+                  <property name="Score"/>
+                  <value type="numeric">-1</value>
+                </condition>
+              </and>
+            </or>
+					</and>
+				</clause>
+				<then>
+					<set>
+						<property name="Result"/>
+						<value type="System.Boolean">true</value>
+					</set>
+				</then>
+				<else>
+					<set>
+						<property name="Result"/>
+						<value type="System.Boolean">false</value>
+					</set>
+				</else>
+			</if>
+		</definition>
+  </rule>
+</codeeffects>
